@@ -88,23 +88,23 @@ func CheckoutPayment(request *indodana.RequestCheckoutPayment) (*indodana.Respon
 
 ###### Check Status
 ```go
-	func CheckStatus(merchantOrderID string) (*indodana.ResponseCheckStatus, error) {
-		var (
-			request *indodana.RequestCheckStatus
-			resp    *indodana.ResponseCheckStatus
-			err     error
-		)
+func CheckStatus(merchantOrderID string) (*indodana.ResponseCheckStatus, error) {
+	var (
+		request *indodana.RequestCheckStatus
+		resp    *indodana.ResponseCheckStatus
+		err     error
+	)
 
-		request.MerchantOrderId = merchantOrderID
+	request.MerchantOrderId = merchantOrderID
 
-		// Generate deeplink for apps and mobile-web only
-		resp, err = coreGateway.CheckStatus(request)
+	// Generate deeplink for apps and mobile-web only
+	resp, err = coreGateway.CheckStatus(request)
 
-		if err != nil {
-			return nil, err
-		}
-		return resp, nil
+	if err != nil {
+		return nil, err
 	}
+	return resp, nil
+}
 ```
 
 #### Support
